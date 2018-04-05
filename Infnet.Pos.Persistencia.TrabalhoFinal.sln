@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sifiscon.Ui.Mvc", "src\Sifiscon.Ui.Mvc\Sifiscon.Ui.Mvc.csproj", "{D6A9D729-CCD0-423A-8499-55D19A68010C}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{1129DCC5-6821-4C65-96E1-8CAE56F4796F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{ECBFDD73-80E9-4F94-B1FF-69682465837C}"
@@ -24,8 +26,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sifiscon.Domain", "src\Sifiscon.Domain\Sifiscon.Domain.csproj", "{8AE2A0D0-89F5-49A8-AFEE-E35C963BE552}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sifiscon.Application", "src\Sifiscon.Application\Sifiscon.Application.csproj", "{C2BB71E6-5D51-4E19-923D-014149CEAD25}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sifiscon.Ui.Mvc", "src\Sifiscon.Ui.Mvc\Sifiscon.Ui.Mvc.csproj", "{D6A9D729-CCD0-423A-8499-55D19A68010C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
