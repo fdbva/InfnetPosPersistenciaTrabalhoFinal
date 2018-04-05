@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 
 namespace Sifiscon.Ui.Mvc
 {
@@ -26,6 +27,7 @@ namespace Sifiscon.Ui.Mvc
             services.AddResponseCompression(options =>
             {
                 options.Providers.Add<GzipCompressionProvider>();
+                options.EnableForHttps = true;
                 options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "image/svg+xml" });
             });
 
@@ -34,7 +36,12 @@ namespace Sifiscon.Ui.Mvc
                 options.Level = CompressionLevel.Optimal;
             });
 
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(options =>
+            {
+                options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
+                options.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
