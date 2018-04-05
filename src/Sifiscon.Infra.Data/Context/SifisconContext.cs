@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Sifiscon.Domain.Entities;
+using Sifiscon.Infra.Data.EntitiesConfig;
 
 namespace Sifiscon.Infra.Data.Context
 {
@@ -21,6 +22,13 @@ namespace Sifiscon.Infra.Data.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new AutoDeInfracaoConfig());
+            modelBuilder.ApplyConfiguration(new EnderecoConfig());
+            modelBuilder.ApplyConfiguration(new FornecedorConfig());
+            modelBuilder.ApplyConfiguration(new ProcessoConfig());
+            modelBuilder.ApplyConfiguration(new ProcessoConfig());
         }
 
         public DbSet<AutoDeInfracao> AutosDeInfracao { get; set; }
