@@ -11,11 +11,11 @@
 - [x] Data Repository
 - [x] Presentation Mvc Iso/Utc Date configuration on Startup
 - [x] Fluent mapping (validations?)
-- [ ] DbContextOptionsBuilder/ConnectionString
-- [ ] Migrations
+- [x] DbContextOptionsBuilder/ConnectionString
+- [x] Migrations
 - [ ] numero_processo
 - [ ] calculo_multa
 - [x] Domain(service?)
 - [x] Application(validations?again? ViewModels, AppService?)
-- [ ] Mvc(automapper, controller, views)?
+- [x] Mvc(automapper, controller, views)?
 - [x] CrossCutting.IoC SimpleInjector containers
