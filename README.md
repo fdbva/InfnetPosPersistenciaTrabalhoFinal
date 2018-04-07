@@ -13,8 +13,6 @@
 - [x] Fluent mapping (validations?)
 - [x] DbContextOptionsBuilder/ConnectionString
 - [x] Migrations
-- [ ] numero_processo
-- [ ] calculo_multa
 - [x] Domain(service?)
 - [x] Application(validations?again? ViewModels, AppService?)
 - [x] Mvc(automapper, controller, views)?
