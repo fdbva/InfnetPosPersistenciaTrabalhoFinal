@@ -10,12 +10,12 @@
 - [x] Data EntityConfigFiles (empty)
 - [x] Data Repository
 - [x] Presentation Mvc Iso/Utc Date configuration on Startup
-- [ ] Fluent mapping (validations?)
+- [x] Fluent mapping (validations?)
 - [ ] DbContextOptionsBuilder/ConnectionString
 - [ ] Migrations
 - [ ] numero_processo
 - [ ] calculo_multa
-- [ ] Domain(service?)
-- [ ] Application(validations?again? ViewModels, AppService?)
+- [x] Domain(service?)
+- [x] Application(validations?again? ViewModels, AppService?)
 - [ ] Mvc(automapper, controller, views)?
-- [ ] CrossCutting.IoC SimpleInjector containers
+- [x] CrossCutting.IoC SimpleInjector containers
