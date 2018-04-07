@@ -1,5 +1,7 @@
 # InfnetPosPersistenciaTrabalhoFinal
-## DDD, .NET Standard/Core(Mvc) with Repository Pattern and UnitOfWork
+## VS2017 Community / Enterprise(student)
+## .NET Core MVC, EF Core and SqlServer. Class Libraries on .NET Standard
+### DDD with Repository Pattern and UnitOfWork
 
 ### Tasks:
 - [x] Create Projects in Solutions
