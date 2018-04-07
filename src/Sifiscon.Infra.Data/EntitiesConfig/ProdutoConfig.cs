@@ -8,6 +8,23 @@ namespace Sifiscon.Infra.Data.EntitiesConfig
     {
         public void Configure(EntityTypeBuilder<Produto> builder)
         {
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Nome)
+                .HasMaxLength(200)
+                .IsRequired();
+
+            builder.Property(x => x.Marca)
+                .HasMaxLength(200)
+                .IsRequired();
+
+            builder.Property(x => x.Estoque)
+                .HasMaxLength(200)
+                .IsRequired();
+
+            builder
+                .HasOne(x => x.Fornecedor)
+                .WithMany(x => x.Produtos);
         }
     }
 }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sifiscon.Domain.DataInterfaces.UoW;
 using Sifiscon.Infra.Data.Context;
-using Sifiscon.Infra.Data.Interfaces;
 
 namespace Sifiscon.Infra.Data.UoW
 {
@@ -21,6 +21,11 @@ namespace Sifiscon.Infra.Data.UoW
         public void BeginTransaction()
         {
             _disposed = false;
+        }
+
+        public async Task CommitAsync()
+        {
+            await _context.SaveChangesAsync();
         }
 
         public void Commit()

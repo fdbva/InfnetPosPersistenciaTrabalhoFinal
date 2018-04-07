@@ -10,6 +10,7 @@ namespace Sifiscon.Domain.Entities
     {
         //será que precisa do Cnpj? Ou propriedade de navegação para o Fornecedor? Uma empresa pode trocar de Cnpj e teria que ficar registrado o antigo?
         public string Cnpj { get; set; }
+        public string NumeroProcesso { get; set; }
         public string RelatoFiscalizacao { get; set; }
         public DateTime DataRelato { get; set; }
         public string FiscalResposavel { get; set; }

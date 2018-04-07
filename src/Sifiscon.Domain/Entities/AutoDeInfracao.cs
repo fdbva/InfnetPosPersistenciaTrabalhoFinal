@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Sifiscon.Domain.Interfaces.Constants;
+using Sifiscon.Domain.Constants;
 
 namespace Sifiscon.Domain.Entities
 {

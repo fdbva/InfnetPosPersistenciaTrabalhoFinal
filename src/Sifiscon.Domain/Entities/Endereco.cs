@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sifiscon.Domain.Constants;
 
 namespace Sifiscon.Domain.Entities
 {
@@ -14,7 +15,7 @@ namespace Sifiscon.Domain.Entities
         public string Bairro { get; set; }
         public string Cep { get; set; }
         public string Municipio { get; set; }
-        public string UnidadeFederativa { get; set; }
+        public EnumUf UnidadeFederativa { get; set; }
         public Fornecedor Fornecedor { get; set; }
     }
 }

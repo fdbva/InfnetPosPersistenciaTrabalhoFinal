@@ -1,10 +1,10 @@
-﻿using Sifiscon.Domain.Entities;
-using Sifiscon.Domain.Interfaces.Repositories;
+﻿using Sifiscon.Domain.DataInterfaces.Repositories;
+using Sifiscon.Domain.Entities;
 using Sifiscon.Infra.Data.Context;
 
 namespace Sifiscon.Infra.Data.Repositories
 {
-    public class ProdutoRepository : RepositoryBase<Produto>, IProdutoRepository
+    public class ProdutoRepository : BaseRepository<Produto>, IProdutoRepository
     {
         public ProdutoRepository(SifisconContext context) : base(context)
         {
