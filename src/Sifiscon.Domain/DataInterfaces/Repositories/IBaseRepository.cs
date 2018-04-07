@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sifiscon.Domain.DataInterfaces.Repositories
 {
-    public interface IBaseRepository<TEntity> : IDisposable where TEntity : class
+    public interface IBaseRepository<TEntity> where TEntity : class
     {
         Task<TEntity> AddAsync(TEntity obj);
         Task<TEntity> FindAsync(Guid id);
@@ -15,6 +15,6 @@ namespace Sifiscon.Domain.DataInterfaces.Repositories
         TEntity Update(TEntity obj);
         Task RemoveAsync(Guid id);
         void Remove(TEntity obj);
-        new void Dispose();
+        void Dispose();
     }
 }

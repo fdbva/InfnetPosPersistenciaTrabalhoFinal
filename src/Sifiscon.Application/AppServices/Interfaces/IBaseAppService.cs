@@ -9,7 +9,7 @@ using Sifiscon.Domain.Services.Interfaces;
 
 namespace Sifiscon.Application.AppServices.Interfaces
 {
-    public interface IBaseAppService<TEntity, TEntityViewModel> : IDisposable
+    public interface IBaseAppService<TEntity, TEntityViewModel>
         where TEntity : BaseEntity
         where TEntityViewModel : BaseViewModel
     {
@@ -21,6 +21,6 @@ namespace Sifiscon.Application.AppServices.Interfaces
         TEntityViewModel Update(TEntityViewModel obj);
         Task RemoveAsync(Guid id);
         void Remove(TEntityViewModel obj);
-        new void Dispose();
+        void Dispose();
     }
 }

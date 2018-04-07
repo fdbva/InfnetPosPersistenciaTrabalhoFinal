@@ -7,7 +7,7 @@ using AutoMapper;
 
 namespace Sifiscon.Application.AutoMapper
 {
-    public class AutoMapperConfig
+    public static class AutoMapperConfig
     {
         public static MapperConfiguration RegisterMappings()
         {

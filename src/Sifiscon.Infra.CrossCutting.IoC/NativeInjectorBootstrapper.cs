@@ -18,7 +18,7 @@ using Sifiscon.Infra.Data.UoW;
 
 namespace Sifiscon.Infra.CrossCutting.IoC
 {
-    public class NativeInjectorBootstrapper
+    public static class NativeInjectorBootstrapper
     {
 
         public static void RegisterServices(IServiceCollection services)

@@ -80,7 +80,7 @@ namespace Sifiscon.Application.AppServices
             Uow.CommitAsync();
         }
 
-        public virtual void Dispose()
+        public void Dispose()
         {
             _baseService.Dispose();
         }

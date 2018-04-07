@@ -21,10 +21,6 @@ namespace Sifiscon.Infra.Data.EntitiesConfig
             builder.Property(x => x.Estoque)
                 .HasMaxLength(200)
                 .IsRequired();
-
-            //builder
-            //    .HasOne(x => x.Fornecedor)
-            //    .WithMany(x => x.Produtos);
         }
     }
 }

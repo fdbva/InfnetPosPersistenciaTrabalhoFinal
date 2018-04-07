@@ -18,10 +18,6 @@ namespace Sifiscon.Infra.Data.EntitiesConfig
 
             builder.Property(x => x.Agravante)
                 .IsRequired();
-
-            //builder
-            //    .HasOne(x => x.Processo)
-            //    .WithMany(x => x.AutosDeInfracao);
         }
     }
 }

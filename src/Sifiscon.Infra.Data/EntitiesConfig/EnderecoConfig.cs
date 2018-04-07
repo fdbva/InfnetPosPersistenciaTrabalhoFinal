@@ -35,10 +35,6 @@ namespace Sifiscon.Infra.Data.EntitiesConfig
 
             builder.Property(x => x.UnidadeFederativa)
                 .IsRequired();
-
-            //builder
-            //    .HasOne(x => x.Fornecedor)
-            //    .WithMany(x => x.Enderecos);
         }
     }
 }

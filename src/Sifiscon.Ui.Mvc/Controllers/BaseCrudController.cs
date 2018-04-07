@@ -11,7 +11,6 @@ using Sifiscon.Domain.Entities;
 
 namespace Sifiscon.Ui.Mvc.Controllers
 {
-    //TODO: passar a usar o BaseCrudController e praticamente esvaziar os outros
     public abstract class BaseCrudController<TIAppService, TEntity, TEntityViewModel> : Controller
         where TEntity : BaseEntity
         where TEntityViewModel : BaseViewModel
@@ -31,18 +30,7 @@ namespace Sifiscon.Ui.Mvc.Controllers
 
         public virtual async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var fornecedor = await _appService.FindAsync(id.Value);
-            if (fornecedor == null)
-            {
-                return NotFound();
-            }
-
-            return View(fornecedor);
+            return await GetEntityViewModel(id);
         }
 
         public virtual IActionResult Create()
@@ -52,37 +40,27 @@ namespace Sifiscon.Ui.Mvc.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public virtual async Task<IActionResult> Create(TEntityViewModel fornecedor)
+        public virtual async Task<IActionResult> Create(TEntityViewModel entityViewModel)
         {
             if (ModelState.IsValid)
             {
-                fornecedor.Id = Guid.NewGuid();
-                await _appService.AddAsync(fornecedor);
+                entityViewModel.Id = Guid.NewGuid();
+                await _appService.AddAsync(entityViewModel);
                 return RedirectToAction(nameof(Index));
             }
-            return View(fornecedor);
+            return View(entityViewModel);
         }
 
         public virtual async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var fornecedor = await _appService.FindAsync(id.Value);
-            if (fornecedor == null)
-            {
-                return NotFound();
-            }
-            return View(fornecedor);
+            return await GetEntityViewModel(id);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public virtual IActionResult Edit(Guid id, TEntityViewModel fornecedor)
+        public virtual IActionResult Edit(Guid id, TEntityViewModel entityViewModel)
         {
-            if (id != fornecedor.Id)
+            if (id != entityViewModel.Id)
             {
                 return NotFound();
             }
@@ -91,11 +69,11 @@ namespace Sifiscon.Ui.Mvc.Controllers
             {
                 try
                 {
-                    _appService.Update(fornecedor);
+                    _appService.Update(entityViewModel);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FornecedorExists(fornecedor.Id))
+                    if (!EntityViewModelExists(entityViewModel.Id))
                     {
                         return NotFound();
                     }
@@ -106,23 +84,12 @@ namespace Sifiscon.Ui.Mvc.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(fornecedor);
+            return View(entityViewModel);
         }
 
         public virtual async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var fornecedor = await _appService.FindAsync(id.Value);
-            if (fornecedor == null)
-            {
-                return NotFound();
-            }
-
-            return View(fornecedor);
+            return await GetEntityViewModel(id);
         }
 
         [HttpPost, ActionName("Delete")]
@@ -133,7 +100,23 @@ namespace Sifiscon.Ui.Mvc.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool FornecedorExists(Guid id)
+        private async Task<IActionResult> GetEntityViewModel(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var entityViewModel = await _appService.FindAsync(id.Value);
+            if (entityViewModel == null)
+            {
+                return NotFound();
+            }
+
+            return View(entityViewModel);
+        }
+
+        private bool EntityViewModelExists(Guid id)
         {
             return _appService.QueryAllAsNoTracking().Any(e => e.Id == id);
         }

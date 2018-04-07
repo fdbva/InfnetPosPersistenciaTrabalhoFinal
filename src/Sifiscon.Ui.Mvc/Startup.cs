@@ -17,6 +17,8 @@ namespace Sifiscon.Ui.Mvc
 {
     public class Startup
     {
+        private const string ErrorHandlingPath = "/Home/Error";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -63,7 +65,7 @@ namespace Sifiscon.Ui.Mvc
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler(ErrorHandlingPath);
             }
 
             app.UseStaticFiles();
