@@ -20,5 +20,7 @@ namespace Sifiscon.Application.ViewModels
 
         [Required]
         public bool Agravante { get; set; }
+        
+        public ProcessoViewModel Processo { get; set; }
     }
 }

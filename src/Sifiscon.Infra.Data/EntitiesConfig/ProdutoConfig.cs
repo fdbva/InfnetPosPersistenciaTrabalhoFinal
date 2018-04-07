@@ -22,9 +22,9 @@ namespace Sifiscon.Infra.Data.EntitiesConfig
                 .HasMaxLength(200)
                 .IsRequired();
 
-            builder
-                .HasOne(x => x.Fornecedor)
-                .WithMany(x => x.Produtos);
+            //builder
+            //    .HasOne(x => x.Fornecedor)
+            //    .WithMany(x => x.Produtos);
         }
     }
 }

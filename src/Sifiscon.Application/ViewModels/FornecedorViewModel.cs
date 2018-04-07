@@ -28,5 +28,11 @@ namespace Sifiscon.Application.ViewModels
         [Required]
         [DisplayName("DatReceita Bruta")]
         public decimal ReceitaBruta { get; set; }
+
+        public ICollection<EnderecoViewModel> Enderecos { get; set; }
+
+        public ICollection<ProcessoViewModel> Processos { get; set; }
+
+        public ICollection<ProdutoViewModel> Produtos { get; set; }
     }
 }

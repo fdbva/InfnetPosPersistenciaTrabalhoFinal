@@ -11,7 +11,7 @@ namespace Sifiscon.Domain.Services
 {
     public class FornecedorService : BaseService<Fornecedor>, IFornecedorService
     {
-        public FornecedorService(IBaseRepository<Fornecedor> repository) : base(repository)
+        public FornecedorService(IFornecedorRepository repository) : base(repository)
         {
         }
     }

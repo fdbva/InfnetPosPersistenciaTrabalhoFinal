@@ -38,5 +38,7 @@ namespace Sifiscon.Application.ViewModels
 
         [Required]
         public EnumUf UnidadeFederativa { get; set; }
+
+        public FornecedorViewModel Fornecedor { get; set; }
     }
 }

@@ -13,24 +13,27 @@ using Sifiscon.Domain.Services.Interfaces;
 
 namespace Sifiscon.Application.AppServices
 {
-    public class BaseAppService<TEntity, TEntityViewModel> : IBaseAppService<TEntity, TEntityViewModel> 
+    public class BaseAppService<TIService, TEntity, TEntityViewModel> : IBaseAppService<TEntity, TEntityViewModel>
         where TEntity : BaseEntity
         where TEntityViewModel : BaseViewModel
+        where TIService : IBaseService<TEntity>
     {
-        private readonly IBaseService<TEntity> _baseService;
-        private readonly IUnitOfWork _uow;
+        private readonly TIService _baseService;
+        protected readonly IUnitOfWork Uow;
+        protected readonly IMapper Mapper;
 
-        public BaseAppService(IBaseService<TEntity> baseService, IUnitOfWork uow)
+        public BaseAppService(TIService baseService, IUnitOfWork uow, IMapper mapper)
         {
             _baseService = baseService;
-            _uow = uow;
+            Uow = uow;
+            Mapper = mapper;
         }
 
         public virtual Task<TEntityViewModel> AddAsync(TEntityViewModel obj)
         {
-            _uow.BeginTransaction();
+            Uow.BeginTransaction();
             var ret = _baseService.AddAsync(Mapper.Map<TEntity>(obj));
-            _uow.CommitAsync();
+            Uow.CommitAsync();
             return Mapper.Map<Task<TEntityViewModel>>(ret);
         }
 
@@ -56,25 +59,25 @@ namespace Sifiscon.Application.AppServices
 
         public virtual TEntityViewModel Update(TEntityViewModel obj)
         {
-            _uow.BeginTransaction();
+            Uow.BeginTransaction();
             var ret = _baseService.Update(Mapper.Map<TEntity>(obj));
-            _uow.Commit();
+            Uow.Commit();
             return Mapper.Map<TEntityViewModel>(ret);
         }
 
         public virtual Task RemoveAsync(Guid id)
         {
-            _uow.BeginTransaction();
+            Uow.BeginTransaction();
             var ret = _baseService.RemoveAsync(id);
-            _uow.CommitAsync();
+            Uow.CommitAsync();
             return ret;
         }
 
         public virtual void Remove(TEntityViewModel obj)
         {
-            _uow.BeginTransaction();
+            Uow.BeginTransaction();
             _baseService.Remove(Mapper.Map<TEntity>(obj));
-            _uow.CommitAsync();
+            Uow.CommitAsync();
         }
 
         public virtual void Dispose()

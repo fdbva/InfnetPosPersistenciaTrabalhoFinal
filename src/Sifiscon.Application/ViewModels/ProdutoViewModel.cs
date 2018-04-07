@@ -21,5 +21,7 @@ namespace Sifiscon.Application.ViewModels
         [Required]
         [MaxLength(200)]
         public string Estoque { get; set; }
+
+        public FornecedorViewModel Fornecedor { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace Sifiscon.Domain.Services
 {
     public class EnderecoService : BaseService<Endereco>, IEnderecoService
     {
-        public EnderecoService(IBaseRepository<Endereco> repository) : base(repository)
+        public EnderecoService(IEnderecoRepository repository) : base(repository)
         {
         }
     }

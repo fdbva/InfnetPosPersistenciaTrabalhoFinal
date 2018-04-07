@@ -36,5 +36,9 @@ namespace Sifiscon.Application.ViewModels
         [MaxLength(100)]
         [DisplayName("Fiscal Responsavel")]
         public string FiscalResposavel { get; set; }
+
+        public ICollection<AutoDeInfracaoViewModel> AutosDeInfracao { get; set; }
+
+        public FornecedorViewModel Fornecedor { get; set; }
     }
 }

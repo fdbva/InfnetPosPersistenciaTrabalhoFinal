@@ -11,7 +11,7 @@ namespace Sifiscon.Domain.Services
 {
     public class ProdutoService : BaseService<Produto>, IProdutoService
     {
-        public ProdutoService(IBaseRepository<Produto> repository) : base(repository)
+        public ProdutoService(IProdutoRepository repository) : base(repository)
         {
         }
     }

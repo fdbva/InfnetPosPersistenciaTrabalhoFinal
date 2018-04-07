@@ -11,7 +11,7 @@ namespace Sifiscon.Domain.Services
 {
     public class ProcessoService : BaseService<Processo>, IProcessoService
     {
-        public ProcessoService(IBaseRepository<Processo> repository) : base(repository)
+        public ProcessoService(IProcessoRepository repository) : base(repository)
         {
         }
     }

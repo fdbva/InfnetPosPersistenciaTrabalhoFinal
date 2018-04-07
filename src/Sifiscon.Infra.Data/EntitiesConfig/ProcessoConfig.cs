@@ -33,9 +33,9 @@ namespace Sifiscon.Infra.Data.EntitiesConfig
                 .HasMany(x => x.AutosDeInfracao)
                 .WithOne(x => x.Processo);
 
-            builder
-                .HasOne(x => x.Fornecedor)
-                .WithMany(x => x.Processos);
+            //builder
+            //    .HasOne(x => x.Fornecedor)
+            //    .WithMany(x => x.Processos);
         }
     }
 }

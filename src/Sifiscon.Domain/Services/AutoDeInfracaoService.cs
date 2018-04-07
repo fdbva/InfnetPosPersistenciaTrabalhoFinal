@@ -11,7 +11,7 @@ namespace Sifiscon.Domain.Services
 {
     public class AutoDeInfracaoService : BaseService<AutoDeInfracao>, IAutoDeInfracaoService
     {
-        public AutoDeInfracaoService(IBaseRepository<AutoDeInfracao> repository) : base(repository)
+        public AutoDeInfracaoService(IAutoDeInfracaoRepository repository) : base(repository)
         {
         }
     }

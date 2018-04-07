@@ -27,7 +27,7 @@ namespace Sifiscon.Infra.Data.Context
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            optionsBuilder.UseSqlServer(config.GetConnectionString("SifisconLocalDb"));
+            optionsBuilder.UseSqlServer(config.GetConnectionString("SifisconLocalMsSql"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

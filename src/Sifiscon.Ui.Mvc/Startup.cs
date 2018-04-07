@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -10,8 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-//Não há referência para o Infra.Data no csproj, está vindo do IoC
-using Sifiscon.Infra.Data.Context;
+using Sifiscon.Infra.CrossCutting.IoC;
 
 namespace Sifiscon.Ui.Mvc
 {
@@ -41,12 +41,14 @@ namespace Sifiscon.Ui.Mvc
 
             services.AddMvc()
                 .AddJsonOptions(options =>
-            {
-                options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
-                options.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
-            });
+                {
+                    options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
+                    options.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
+                });
 
-            services.AddDbContext<SifisconContext>();
+            services.AddAutoMapper();
+
+            NativeInjectorBootstrapper.RegisterServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

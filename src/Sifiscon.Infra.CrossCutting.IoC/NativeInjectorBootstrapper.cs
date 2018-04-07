@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 using Sifiscon.Application.AppServices;
 using Sifiscon.Application.AppServices.Interfaces;
@@ -22,26 +23,30 @@ namespace Sifiscon.Infra.CrossCutting.IoC
 
         public static void RegisterServices(IServiceCollection services)
         {
+            // 2 - Application AutoMapper
+            services.AddSingleton(Mapper.Configuration);
+            services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<IConfigurationProvider>(), sp.GetService));
+
             // 2 - Application AppServices
-            services.AddScoped<IAutoDeInfracaoAppService, AutoDeInfracaoAppService>();
-            services.AddScoped<IEnderecoAppService, EnderecoAppService>();
-            services.AddScoped<IFornecedorAppService, FornecedorAppService>();
-            services.AddScoped<IProcessoAppService, ProcessoAppService>();
-            services.AddScoped<IProdutoAppService, ProdutoAppService>();
+            services.AddScoped(typeof(IAutoDeInfracaoAppService), typeof(AutoDeInfracaoAppService));
+            services.AddScoped(typeof(IEnderecoAppService), typeof(EnderecoAppService));
+            services.AddScoped(typeof(IFornecedorAppService), typeof(FornecedorAppService));
+            services.AddScoped(typeof(IProcessoAppService), typeof(ProcessoAppService));
+            services.AddScoped(typeof(IProdutoAppService), typeof(ProdutoAppService));
 
             // 3 - Domain Services
-            services.AddScoped<IAutoDeInfracaoService, AutoDeInfracaoService>();
-            services.AddScoped<IEnderecoService, EnderecoService>();
-            services.AddScoped<IFornecedorService, FornecedorService>();
-            services.AddScoped<IProcessoService, ProcessoService>();
-            services.AddScoped<IProdutoService, ProdutoService>();
+            services.AddScoped(typeof(IAutoDeInfracaoService), typeof(AutoDeInfracaoService));
+            services.AddScoped(typeof(IEnderecoService), typeof(EnderecoService));
+            services.AddScoped(typeof(IFornecedorService), typeof(FornecedorService));
+            services.AddScoped(typeof(IProcessoService), typeof(ProcessoService));
+            services.AddScoped(typeof(IProdutoService), typeof(ProdutoService));
 
             // 3 - Domain Repositories
-            services.AddScoped<IAutoDeInfracaoRepository, AutoDeInfracaoRepository>();
-            services.AddScoped<IEnderecoRepository, EnderecoRepository>();
-            services.AddScoped<IFornecedorRepository, FornecedorRepository>();
-            services.AddScoped<IProcessoRepository, ProcessoRepository>();
-            services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped(typeof(IAutoDeInfracaoRepository), typeof(AutoDeInfracaoRepository));
+            services.AddScoped(typeof(IEnderecoRepository), typeof(EnderecoRepository));
+            services.AddScoped(typeof(IFornecedorRepository), typeof(FornecedorRepository));
+            services.AddScoped(typeof(IProcessoRepository), typeof(ProcessoRepository));
+            services.AddScoped(typeof(IProdutoRepository), typeof(ProdutoRepository));
 
             // 4.1 - Infra.Data
             services.AddScoped<SifisconContext>();
