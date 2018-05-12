@@ -12,7 +12,7 @@ using Sifiscon.Infra.Data.Context;
 
 namespace Sifiscon.Ui.Mvc.Controllers
 {
-    public class AutosDeInfracaoController : BaseCrudController<IAutoDeInfracaoAppService, AutoDeInfracao, AutoDeInfracaoViewModel>
+    public class AutosDeInfracaoController : BaseCrudController<IAutoDeInfracaoAppService, AutoDeInfracaoViewModel>
     {
         public AutosDeInfracaoController(IAutoDeInfracaoAppService context) : base(context)
         {

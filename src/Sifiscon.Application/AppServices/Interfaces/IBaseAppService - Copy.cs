@@ -9,12 +9,13 @@ using Sifiscon.Domain.Services.Interfaces;
 
 namespace Sifiscon.Application.AppServices.Interfaces
 {
-    public interface IBaseAppService<TEntityViewModel>
+    public interface IBaseAppService2<TEntity, TEntityViewModel>
+        where TEntity : BaseEntity
         where TEntityViewModel : BaseViewModel
     {
         Task<TEntityViewModel> AddAsync(TEntityViewModel obj);
         Task<TEntityViewModel> FindAsync(Guid id);
-        //IEnumerable<TEntityViewModel> Where(Expression<Func<TEntity, bool>> predicate);
+        IEnumerable<TEntityViewModel> Where(Expression<Func<TEntity, bool>> predicate);
         IQueryable<TEntityViewModel> QueryAllAsNoTracking();
         IEnumerable<TEntityViewModel> GetAll();
         TEntityViewModel Update(TEntityViewModel obj);

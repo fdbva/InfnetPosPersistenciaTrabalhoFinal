@@ -11,10 +11,9 @@ using Sifiscon.Domain.Entities;
 
 namespace Sifiscon.Ui.Mvc.Controllers
 {
-    public abstract class BaseCrudController<TIAppService, TEntity, TEntityViewModel> : Controller
-        where TEntity : BaseEntity
+    public abstract class BaseCrudController<TIAppService, TEntityViewModel> : Controller
         where TEntityViewModel : BaseViewModel
-        where TIAppService : IBaseAppService<TEntity, TEntityViewModel>
+        where TIAppService : IBaseAppService<TEntityViewModel>
     {
         private readonly TIAppService _appService;
 

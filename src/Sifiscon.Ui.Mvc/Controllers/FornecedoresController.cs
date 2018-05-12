@@ -12,7 +12,7 @@ using Sifiscon.Infra.Data.Context;
 
 namespace Sifiscon.Ui.Mvc.Controllers
 {
-    public class FornecedoresController : BaseCrudController<IFornecedorAppService, Fornecedor, FornecedorViewModel>
+    public class FornecedoresController : BaseCrudController<IFornecedorAppService, FornecedorViewModel>
     {
         public FornecedoresController(IFornecedorAppService context) : base(context)
         {

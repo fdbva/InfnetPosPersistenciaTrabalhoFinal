@@ -12,7 +12,7 @@ using Sifiscon.Infra.Data.Context;
 
 namespace Sifiscon.Ui.Mvc.Controllers
 {
-    public class ProcessosController : BaseCrudController<IProcessoAppService, Processo, ProcessoViewModel>
+    public class ProcessosController : BaseCrudController<IProcessoAppService, ProcessoViewModel>
     {
         public ProcessosController(IProcessoAppService context) : base(context)
         {

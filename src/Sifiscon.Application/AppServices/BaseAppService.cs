@@ -13,7 +13,7 @@ using Sifiscon.Domain.Services.Interfaces;
 
 namespace Sifiscon.Application.AppServices
 {
-    public class BaseAppService<TIService, TEntity, TEntityViewModel> : IBaseAppService<TEntity, TEntityViewModel>
+    public class BaseAppService<TIService, TEntity, TEntityViewModel> : IBaseAppService<TEntityViewModel>
         where TEntity : BaseEntity
         where TEntityViewModel : BaseViewModel
         where TIService : IBaseService<TEntity>

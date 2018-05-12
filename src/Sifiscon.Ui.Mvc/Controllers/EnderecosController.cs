@@ -12,7 +12,7 @@ using Sifiscon.Infra.Data.Context;
 
 namespace Sifiscon.Ui.Mvc.Controllers
 {
-    public class EnderecosController : BaseCrudController<IEnderecoAppService, Endereco, EnderecoViewModel>
+    public class EnderecosController : BaseCrudController<IEnderecoAppService, EnderecoViewModel>
     {
         public EnderecosController(IEnderecoAppService context) : base(context)
         {
