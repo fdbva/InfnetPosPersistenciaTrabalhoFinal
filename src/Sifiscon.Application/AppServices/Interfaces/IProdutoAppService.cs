@@ -3,7 +3,7 @@ using Sifiscon.Domain.Entities;
 
 namespace Sifiscon.Application.AppServices.Interfaces
 {
-    public interface IProdutoAppService : IBaseAppService2<Produto, ProdutoViewModel>, IBaseAppService<ProdutoViewModel>
+    public interface IProdutoAppService : IBaseAppServiceInternal<Produto, ProdutoViewModel>, IBaseAppService<ProdutoViewModel>
     {
 
     }

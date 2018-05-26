@@ -3,7 +3,7 @@ using Sifiscon.Domain.Entities;
 
 namespace Sifiscon.Application.AppServices.Interfaces
 {
-    public interface IProcessoAppService : IBaseAppService2<Processo, ProcessoViewModel>, IBaseAppService<ProcessoViewModel>
+    public interface IProcessoAppService : IBaseAppServiceInternal<Processo, ProcessoViewModel>, IBaseAppService<ProcessoViewModel>
     {
 
     }

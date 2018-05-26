@@ -9,7 +9,7 @@ using Sifiscon.Domain.Services.Interfaces;
 
 namespace Sifiscon.Application.AppServices.Interfaces
 {
-    public interface IBaseAppService2<TEntity, TEntityViewModel>
+    public interface IBaseAppServiceInternal<TEntity, TEntityViewModel>
         where TEntity : BaseEntity
         where TEntityViewModel : BaseViewModel
     {
